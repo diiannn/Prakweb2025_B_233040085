@@ -21,11 +21,11 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="<?= BASEURL; ?>">Home</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="<?= BASEURL; ?>/about">About</a>
-                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= BASEURL; ?>/mahasiswa">List</a>
+                        <a class="nav-link" href="<?= BASEURL; ?>/user">List User</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= BASEURL; ?>/mahasiswa">Mahasiswa</a>
                 </ul>
             </div>
         </div>
