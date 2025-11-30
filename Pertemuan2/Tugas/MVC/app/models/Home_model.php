@@ -2,12 +2,14 @@
 
 class Home_model
 {
-    private $nama = 'Dian';
+    private nama = 'Dian';
 
     public function getUser()
     {
-        return $this->nama;
+        return this->nama;
     }
 
 
 }
+
+
