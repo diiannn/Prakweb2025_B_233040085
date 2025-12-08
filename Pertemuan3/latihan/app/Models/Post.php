@@ -33,6 +33,11 @@ class Post extends Model
         // Contoh: $post->category->name
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     // Query Scope: Filter pencarian berdasarkan search, category, atau author
     public function scopeFilter(Builder $query, array $filters): void
     {

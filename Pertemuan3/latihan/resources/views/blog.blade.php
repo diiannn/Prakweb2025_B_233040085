@@ -1,17 +1,36 @@
 <x-layout>
-    <x-slot:title>
-        Blog
-    </x-slot:title>
-    <x-slot:header> Blog</x-slot:header>
-    <article class="py-8 max-w-screen-md border-b border-gray-300">
-        <h2 class="text-2xl font-bold tracking-tight text-gray-900">Judul artikel 1</h2>
-        <div class="text-base text-gray-500">
-            <a href="#">Dian Astri</a> | 28 November 2025
+    <x-slot:title>{{ $post->title }}</x-slot:title>
+
+    <article class="py-8 max-w-screen-md mx-auto border-b border-gray-300">
+        {{-- Judul --}}
+        <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-900">{{ $post->title }}</h2>
+
+        {{-- Meta Info --}}
+        <div class="text-base text-gray-500 mb-5">
+            By
+            <a href="#" class="hover:underline text-base text-gray-500">{{ $post->author->name }}</a>
+            in
+            <a href="/categories/{{ $post->category->slug }}"
+                class="hover:underline text-base text-gray-500">{{ $post->category->name }}</a> |
+            {{ $post->created_at->diffForHumans() }}
         </div>
-        <p class="my-4 font-light">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut, iste. Nihil distinctio id ad enim, fugiat qui
-            quia. A autem et obcaecati vero delectus quasi quaerat, iusto dignissimos voluptate numquam.
-        </p>
-        <a href="" class="font-medium text-blue-500 hover:underline">Read More &raquo;</a>
+
+        {{-- GAMBAR POSTINGAN (Hanya muncul jika ada gambarnya) --}}
+        @if ($post->image)
+            <div class="my-4 overflow-hidden rounded-lg shadow-sm" style="">
+                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}"
+                    class="w-full h-full object-cover object-center">
+            </div>
+        @endif
+
+        {{-- Isi Artikel --}}
+        <div class="my-4 font-light text-gray-800 text-justify leading-relaxed">
+            {!! nl2br(e($post->body)) !!}
+        </div>
+
+        {{-- Tombol Kembali --}}
+        <a href="/posts" class="font-medium text-blue-500 hover:underline mt-5 inline-block">
+            &laquo; Back to posts
+        </a>
     </article>
 </x-layout>

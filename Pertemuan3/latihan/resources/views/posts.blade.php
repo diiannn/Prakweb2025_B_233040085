@@ -1,5 +1,5 @@
 <x-layout>
-    <x-slot:title>{{ $title }}</x-slot:title>
+    <x-slot:title>{{ $title ?? ''}}</x-slot:title>
     <x-slot:header>Blog Posts</x-slot:header>
 
 

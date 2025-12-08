@@ -12,6 +12,7 @@ class Category extends Model
 
     // Kolom yang dilindungi dari mass assignment (hanya 'id' yang tidak boleh diisi manual)
     protected $guarded = ['id'];
+    protected $routeKeyName = 'slug';
 
     // Relasi: Satu category memiliki banyak posts (One-to-Many)
     public function posts(): HasMany
